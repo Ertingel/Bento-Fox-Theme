@@ -1,0 +1,12 @@
+<header>
+	<h1>{{ shop.name  | link_to: shop.url }}</h1>
+
+	<nav class="crumbs">
+		<ol>
+			{% for link in linklists.main-menu.links -%}
+				<li>{{ link.title | link_to: link.url }}</li>
+			{% endfor %}
+		</ol>
+	</nav>
+
+</header>
