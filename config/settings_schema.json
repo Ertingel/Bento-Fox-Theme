@@ -6,5 +6,51 @@
     "theme_author": "Ertingel",
     "theme_documentation_url": "https://github.com/Ertingel/Bento-Fox-Theme",
     "theme_support_url": "https://github.com/Ertingel/Bento-Fox-Theme"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "PrimaryColor",
+        "label": "Primary color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "SecondaryColor",
+        "label": "Secondary color",
+        "default": "#dddddd"
+      },
+      {
+        "type": "color",
+        "id": "TextColor",
+        "label": "Text color",
+        "default": "#000000"
+      }
+    ]
+  },
+  {
+    "name": "Text",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "HeaderFont",
+        "label": "Header font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "font_picker",
+        "id": "TextFont",
+        "label": "Text font",
+        "default": "sans-serif"
+      },
+      {
+        "type": "number",
+        "id": "TextSize",
+        "label": "Text size",
+        "default": 16
+      }
+    ]
   }
 ]
