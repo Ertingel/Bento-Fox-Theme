@@ -1,9 +1,26 @@
 <footer>
 
+	{% if section.settings.links? %}
+		<nav>
+			<ol>
+				{% for link in section.settings.links -%}
+					<li>{{ link.title | link_to: link.url }}</li>
+				{% endfor %}
+			</ol>
+		</nav>
+	{% endif %}
+
 </footer>
 
 {% schema %}
 {
-	"name": "Footer"
+	"name": "Footer",
+	"settings": [
+		{
+			"type": "link_list",
+			"id": "links",
+			"label": "Links"
+		}
+	]
 }
 {% endschema %}
