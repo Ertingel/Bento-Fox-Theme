@@ -7,16 +7,26 @@
 		
 	{% else %}
 		<table>
-			{% for item in cart.items %}
-				<tr>
-					<td>{{ item.quantity }}</td>
-					<td><a href="{{ item.url }}">{{ item.title }}</a> <a href="{{ item.url_to_remove }}">Remove?</a></td>
-					<td>{{ item.final_line_price | money }}</td>
-				</tr>
-			{% endfor %}
+			<thead>
+				<td>Quantity</td>
+				<td>Product</td>
+				<td>Price</td>
+			</thead>
+			<tbody>
+				{% for item in cart.items %}
+					<tr>
+						<td>{{ item.quantity }}</td>
+						<td><a href="{{ item.url }}">{{ item.title }}</a> <a href="{{ item.url_to_remove }}">Remove?</a></td>
+						<td>{{ item.final_line_price | money }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			<tfoot>
+				<td></td>
+				<td>Total</td>
+				<td>{{ cart.total_price | money }}</td>
+			</tfoot>
 		</table>
-
-		<p>Total: <b>{{ cart.total_price | money }}</b></p>
 
 		<button type="submit" name="checkout">Checkout</button>
 	{% endif %}

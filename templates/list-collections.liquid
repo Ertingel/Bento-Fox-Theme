@@ -1,0 +1,20 @@
+<h1>Collections: </h1>
+
+{% for collection in collections %}
+	<h2><a href="{{ collection.url }}">{{ collection.title }}</a></h2>
+
+	<table>
+		<thead>
+			<td>Product</td>
+			<td>Price</td>
+		</thead>
+		<tbody>
+			{% for product in collection.products %}
+				<tr>
+					<td><a href="{{ product.url }}">{{ product.title }}</a></td>
+					<td>{{ product.price | money }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endfor %}

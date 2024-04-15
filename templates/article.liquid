@@ -1,0 +1,26 @@
+<h1>{{ article.title }}</h1>
+<p>{{ article.published_at | date: '%B %d, %Y' }}</p>
+
+<img href="{{ article.image | image_url: width: 200 }}" width="200" height="auto" />
+<div>{{ article.content }}</div>
+
+<p>Author: {{ article.author }}</p>
+
+{% if article.comments_enabled? %}
+	
+	<ul>
+		{%for comment in article.comments%}
+			<li>
+				<h3>{{ comment.name }}</h3>
+				<p>{{ comment.email }}</p>
+				<div>{{ comment.content }}</div>
+			</li>
+		{% endfor %}
+	</ul>
+
+	{% form 'new_comment', article %}
+		<h2>Leave a comment:</h2>
+
+		<button type="submit">Add coment</button>
+	{% endform %}
+{% endif %}
