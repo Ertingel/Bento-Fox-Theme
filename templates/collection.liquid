@@ -1,0 +1,10 @@
+<h1>{{ collection.title }}</h1>
+
+<table>
+	{% for product in collection.products %}
+		<tr>
+			<td><a href="{{ product.url }}">{{ product.title }}</a></td>
+			<td>{{ product.price | money }}</td>
+		</tr>
+	{% endfor %}
+</table>
