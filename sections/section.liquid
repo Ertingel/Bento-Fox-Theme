@@ -1,16 +1,73 @@
 <section>
-
+	{% for block in section.blocks %}
+		{% case block.type %}
+			{% when "title" %}
+				<h1>{{ block.settings.title }}</h1>
+			{% when "header" %}
+				<div>
+					<h1>{{ block.settings.header }}</h1>
+					{{ block.settings.text }}
+				</div>
+			{% when "image" %}
+				<img href={{ block.settings.image | image_url }} width="100"  height="100"/>
+			{% else %}
+				<p>ERROR: Block type not found! </p>
+		{% endcase %}
+	{% endfor %}
 </section>
 
 {% schema %}
 {
-  "name": "Section",
+	"name": "Section",
     "settings": [],
 	"presets": [
       {
         "name": "Section",
         "category": "Body"
       }
-    ]
+    ],
+	"blocks": [
+		{
+			"type": "title",
+			"name": "Title",
+			"settings": [
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title",
+					"default": "Header"
+				}
+			]
+   		},
+		{
+			"type": "paragraph",
+			"name": "Paragraph",
+			"settings": [
+				{
+					"type": "text",
+					"id": "header",
+					"label": "Header",
+					"default": "Header"
+				},
+				{
+					"type": "richtext",
+					"id": "text",
+					"label": "text",
+					"default": "<p>Paragraph<p>"
+				}
+			]
+   		},
+		{
+			"type": "image",
+			"name": "Image",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				}
+			]
+   		}
+	]
 }
 {% endschema %}
