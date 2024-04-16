@@ -12,6 +12,12 @@
     "settings": [
       {
         "type": "color",
+        "id": "TextColor",
+        "label": "Text color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
         "id": "PrimaryColor",
         "label": "Primary color",
         "default": "#ffffff"
@@ -24,9 +30,9 @@
       },
       {
         "type": "color",
-        "id": "TextColor",
-        "label": "Text color",
-        "default": "#000000"
+        "id": "BackgroundColor",
+        "label": "Background color",
+        "default": "#ffffff"
       }
     ]
   },
