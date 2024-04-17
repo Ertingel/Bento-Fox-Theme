@@ -1,0 +1,26 @@
+
+{% if products %}
+	<section id={{ title }}>
+
+		<h2>{{ title }}</h2>
+
+		<table>
+			<thead>
+				<td>Product</td>
+				<td>Price</td>
+			</thead>
+			
+			<tbody>
+				{% for product in products %}
+					<tr>
+						<td><a href="{{ product.url }}">{{ product.title }}</a></td>
+						<td>{{ product.price | money }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+	</section>
+{% else %}
+	<i>No collection selected. </i>
+{% endif %}

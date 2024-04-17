@@ -8,7 +8,10 @@
 			{% when "paragraph" %}
 
 				<div>
-					<h3>{{ block.settings.header }}</h3>
+					{% if block.settings.header != blank %}
+						<h3>{{ block.settings.header }}</h3>
+					{% endif %}
+					
 					{{ block.settings.text }}
 				</div>
 

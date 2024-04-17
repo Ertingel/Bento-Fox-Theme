@@ -1,4 +1,4 @@
-<header>
+<header class="header">
 	<h1>{{ shop.name  | link_to: shop.url }}</h1>
 
 	{% if section.settings.linklist %}
@@ -12,6 +12,24 @@
 	{% endif %}
 
 </header>
+
+{% stylesheet %}
+.header {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+
+.header * {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+}
+{% endstylesheet %}
 
 {% schema %}
 {

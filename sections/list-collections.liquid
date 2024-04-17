@@ -1,0 +1,33 @@
+<h1>{{ section.settings.title }}</h1>
+
+{% for collection in section.settings.collectionlist %}
+	{% render 'collection' with 
+		title:""
+		products: collection
+	%}
+{% endfor %}
+
+{% schema %}
+{
+	"name": "Collection",
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title",
+			"default": "Collections: "
+		},
+		{
+			"type": "collection_list",
+			"id": "collectionlist",
+			"label": "Collection list"
+		}
+	],
+	"presets": [
+      {
+        "name": "Collection list",
+        "category": "Body"
+      }
+    ]
+}
+{% endschema %}

@@ -1,4 +1,4 @@
-<footer>
+<footer class="footer">
 
 	{% if section.settings.linklist %}
 		<nav>
@@ -11,6 +11,12 @@
 	{% endif %}
 
 </footer>
+
+{% stylesheet %}
+.footer {
+	min-height: 5rem;
+}
+{% endstylesheet %}
 
 {% schema %}
 {
