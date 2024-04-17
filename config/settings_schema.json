@@ -58,5 +58,16 @@
         "default": 2
       }
     ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "number",
+        "id": "padding",
+        "label": "Padding",
+        "default": 1
+      }
+    ]
   }
 ]

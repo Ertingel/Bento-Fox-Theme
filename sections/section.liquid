@@ -1,4 +1,11 @@
-<section>
+
+{% if section.settings.title != blank %}
+	<section id={{ section.settings.title | replace: " " , "_"  }}>
+	<h1>{{ section.settings.title }}</h1>
+{% else %}
+	<section>
+{% endif %}
+
 	{% for block in section.blocks %}
 		{% case block.type %}
 			{% when "title" %}
@@ -27,7 +34,14 @@
 {% schema %}
 {
 	"name": "Section",
-    "settings": [],
+    "settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Title",
+			"default": "Title"
+		}
+	],
 	"presets": [
       {
         "name": "Section",

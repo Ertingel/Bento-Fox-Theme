@@ -1,9 +1,12 @@
-<h1>{{ section.settings.title }}</h1>
+
+{% if section.settings.title != blank %}
+	<h1>{{ section.settings.title }}</h1>
+{% endif %}
 
 {% for collection in section.settings.collectionlist %}
 	{% render 'collection' with 
-		title:""
-		products: collection
+		title:collection.title
+		products: collection.products
 	%}
 {% endfor %}
 
@@ -15,7 +18,7 @@
 			"type": "text",
 			"id": "title",
 			"label": "Title",
-			"default": "Collections: "
+			"default": "Collections"
 		},
 		{
 			"type": "collection_list",

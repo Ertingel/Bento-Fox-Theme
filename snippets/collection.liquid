@@ -1,6 +1,6 @@
 
 {% if products %}
-	<section id={{ title }}>
+	<section id={{ title | replace: " " , "_"  }}>
 
 		<h2>{{ title }}</h2>
 
