@@ -1,11 +1,14 @@
+{% assign list = collections %}
+{% if section.settings.collectionlist.size > 0 %}
+	{% assign list = section.settings.collectionlist %}
+{% endif %}
 
 {% if section.settings.title != blank %}
 	<h1>{{ section.settings.title }}</h1>
 {% endif %}
 
-{% for collection in section.settings.collectionlist %}
+{% for collection in list %}
 	{% render 'collection' with 
-		title:""
 		collection: collection
 	%}
 {% endfor %}

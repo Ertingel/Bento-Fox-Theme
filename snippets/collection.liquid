@@ -1,8 +1,13 @@
 
 {% if collection %}
-	<section id={{ title | replace: " " , "_"  }}>
+	
+	{% if title == blank %}
+		{% assign title = collection.title %}
+	{% endif %}
 
-		{% if section.settings.title != blank %}
+	<section id={{ title | replace: " " , "_"  }} class="collection">
+
+		{% if title != blank %}
 			<h2>{{ title }}</h2>
 		{% else %}
 			<h2>{{ collection.title }}</h2>
@@ -10,8 +15,8 @@
 
 		<table>
 			<thead>
-				<td>Product</td>
-				<td>Price</td>
+				<td><b>Product</b></td>
+				<td><b>Price</b></td>
 			</thead>
 			
 			<tbody>
