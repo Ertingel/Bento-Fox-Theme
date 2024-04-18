@@ -1,13 +1,12 @@
 
-{% if section.settings.title != blank %}
+{% if section.settings.collection %}
 	{% render 'collection' with 
 		title:section.settings.title 
-		products:section.settings.collection.products 
+		collection:section.settings.collection
 	%}
 {% else %}
 	{% render 'collection' with 
-		title:section.settings.collection.title 
-		products:section.settings.collection.products 
+		title:section.settings.title 
 	%}
 {% endif %}
 

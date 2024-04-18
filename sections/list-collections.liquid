@@ -5,8 +5,8 @@
 
 {% for collection in section.settings.collectionlist %}
 	{% render 'collection' with 
-		title:collection.title
-		products: collection.products
+		title:""
+		collection: collection
 	%}
 {% endfor %}
 

@@ -1,10 +1,13 @@
 
-{% if section.settings.title != blank %}
-	<section id={{ section.settings.title | replace: " " , "_"  }}>
-	<h1>{{ section.settings.title }}</h1>
-{% else %}
-	<section>
-{% endif %}
+<section 
+	{% if section.settings.title != blank %}
+		id={{ section.settings.title | replace: " " , "_"  }}
+	{% endif %}
+>
+
+	{% if section.settings.title != blank %}
+		<h1>{{ section.settings.title }}</h1>
+	{% endif %}
 
 	{% for block in section.blocks %}
 		{% case block.type %}

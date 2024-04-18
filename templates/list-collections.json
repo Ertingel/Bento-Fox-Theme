@@ -3,8 +3,7 @@
     "list": {
       "type": "list-collections",
       "settings": {
-        "title":"Menu",
-		"collectionlist":[]
+        "title":"Menu"
       }
     }
   },
