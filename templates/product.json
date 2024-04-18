@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "product": {
+      "type": "product",
+      "settings": {},
+      "blocks": {
+        "images": {
+          "type": "images"
+        },
+        "title": {
+          "type": "title"
+        },
+        "price": {
+          "type": "price"
+        },
+        "description": {
+          "type": "description"
+        },
+        "variants": {
+          "type": "variants"
+        },
+        "buy": {
+          "type": "buy",
+          "settings": {
+            "label": "Add"
+          }
+        }
+      },
+      "block_order": ["images", "title", "price", "description", "variants", "buy"]
+    }
+  },
+  "order": ["product"]
+}

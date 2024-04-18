@@ -1,0 +1,108 @@
+<section id={{ product.title }} class="product">
+	{% form 'product', product %}
+
+		{% for block in section.blocks %}
+			{% case block.type %}
+				{% when "title" %}<h1>{{ product.title }}</h1>
+				{% when "price" %}<b>{{ product.price | money }}</b>
+				{% when "description" %}<div>{{ product.description }}</div>
+				{% when "buy" %}<button type="submit">{{ block.settings.label }}</button>
+				{% when "images" %}
+
+					{% if product.images.size > 0 %}
+						{{ product.images.first | image_url: width: 300 | image_tag }}
+					{% endif %}
+
+				{% when "variants" %}
+
+					{% if product.variants.size > 1 %}
+						<select name="id">
+							{% for variant in product.variants %}
+								<option value={{ variant.id }}>{{ variant.title }}</option>
+							{% endfor %}
+						</select>
+					{% endif %}
+
+				{% else %}<b>ERROR: Block type not found! </b>
+			{% endcase %}
+		{% endfor %}
+
+	{% endform %}
+</section>
+
+
+{% schema %}
+{
+	"name": "Product",
+	"settings": [
+		{
+			"type": "product",
+			"id": "product",
+			"label": "Product"
+		}
+	],
+	"presets": [
+      {
+        "name": "Product",
+        "category": "Body",
+		"blocks": [
+			{
+				"type": "images"
+			},{
+				"type": "title"
+			},{
+				"type": "price"
+			},{
+				"type": "description"
+			},{
+				"type": "variants"
+			},{
+				"type": "buy",
+				"settings": {
+					"label": "Add"
+				}
+			}
+		]
+      }
+    ],
+	"blocks": [
+		{
+			"type": "title",
+			"name": "Title",
+			"settings": []
+   		},
+		{
+			"type": "price",
+			"name": "Price",
+			"settings": []
+   		},
+		{
+			"type": "description",
+			"name": "Description",
+			"settings": []
+   		},
+		{
+			"type": "buy",
+			"name": "Buy",
+			"settings": [
+				{
+					"type": "text",
+					"id": "label",
+					"label": "Label",
+					"default": "Buy"
+				}
+			]
+   		},
+		{
+			"type": "images",
+			"name": "Images",
+			"settings": []
+   		},
+		{
+			"type": "variants",
+			"name": "Variants",
+			"settings": []
+   		}
+	]
+}
+{% endschema %}
