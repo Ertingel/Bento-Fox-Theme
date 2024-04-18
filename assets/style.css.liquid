@@ -95,11 +95,13 @@ img {
 	align-items: stretch;
 }
 
-.main > h1, .main > h2, .main > h3, .main > h4, .main > h5, .main > h6{
+.center-text {
 	text-align: center;
 }
 
 .collection {
+	padding: {{ settings.padding }}rem;
+
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
@@ -109,7 +111,17 @@ img {
 	width: min(calc(100vw - {{ settings.padding }}rem * 2), 25rem);
 }
 
+.collection > table > tbody tr {
+	cursor: pointer;
+}
+
+.collection > table > tbody tr:hover {
+	text-decoration: underline;
+}
+
 .collection > table td {
+	padding: .25rem;
+
 	text-align: left;
 	vertical-align: center;
 }

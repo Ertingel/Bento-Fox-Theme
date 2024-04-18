@@ -21,7 +21,7 @@
 			
 			<tbody>
 				{% for product in collection.products %}
-					<tr>
+					<tr onclick="document.location = '{{ product.url }}'">
 						<td><a href="{{ product.url }}">{{ product.title }}</a></td>
 						<td>{{ product.price | money }}</td>
 					</tr>
