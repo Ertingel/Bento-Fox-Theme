@@ -7,16 +7,16 @@
 
 	<section id={{ title | replace: " " , "_"  }} class="collection">
 
-		{% if title != blank %}
-			<h2>{{ title }}</h2>
+		{% if title_link %}
+			<h2><a href="{{ collection.url }}">{{ title }}</a></h2>
 		{% else %}
-			<h2>{{ collection.title }}</h2>
+			<h2>{{ title }}</h2>
 		{% endif %}
 
 		<table>
 			<thead>
-				<td><b>Product</b></td>
-				<td><b>Price</b></td>
+				<td><b><a href="{{ request.path | sort_by: 'title-descending' }}">Product</a></b></td>
+				<td><b><a href="{{ request.path | sort_by: 'price-descending' }}">Price</a></b></td>
 			</thead>
 			
 			<tbody>
